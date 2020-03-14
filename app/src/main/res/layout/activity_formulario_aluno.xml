@@ -20,11 +20,20 @@
             tools:targetApi="o" />
 
         <EditText
-            android:id="@+id/activity_formulario_aluno_telefone"
+            android:id="@+id/activity_formulario_aluno_telefoneFixo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="@string/telefone"
+            android:hint="@string/telefoneFixo"
+            android:inputType="phone"
+            android:importantForAutofill="no"
+            tools:targetApi="o" />
+        <EditText
+            android:id="@+id/activity_formulario_aluno_telefoneCelular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/telefoneCelular"
             android:inputType="phone"
             android:importantForAutofill="no"
             tools:targetApi="o" />
