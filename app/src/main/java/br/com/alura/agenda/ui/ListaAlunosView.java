@@ -11,6 +11,8 @@ import br.com.alura.agenda.database.AgendaDataBase;
 import br.com.alura.agenda.database.dao.AlunoDAO;
 import br.com.alura.agenda.model.Aluno;
 import br.com.alura.agenda.ui.adapter.ListaAlunosAdapter;
+import br.com.alura.agenda.ui.asycntask.BuscaAlunoTask;
+import br.com.alura.agenda.ui.asycntask.RemoveAlunoTask;
 
 public class ListaAlunosView {
 
@@ -40,12 +42,11 @@ public class ListaAlunosView {
     }
 
     public void atualizaAlunos() {
-        adapter.atualiza(dao.todos());
+        new BuscaAlunoTask(adapter, dao).execute();
     }
 
     private void remove(Aluno aluno) {
-        dao.remove(aluno);
-        adapter.remove(aluno);
+        new RemoveAlunoTask(dao, adapter, aluno).execute();
     }
 
     public void configuraAdapter(ListView listaDeAlunos) {
